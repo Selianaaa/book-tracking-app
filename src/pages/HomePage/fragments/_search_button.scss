@@ -1,0 +1,26 @@
+@import '../../../styles/variables.scss';
+
+.search_button {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: secondaryColor('light');
+  background-image: url('../../../assets/icons/add.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70% 70%;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16), 0 2px 3px rgba(0, 0, 0, 0.23);
+  font-size: 0;
+  outline: 0;
+
+  &:hover {
+    background-color: secondaryColor('main');
+  }
+
+  &:active {
+    background-color: secondaryColor('dark');
+  }
+}
