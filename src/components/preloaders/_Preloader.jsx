@@ -5,6 +5,6 @@ import './_preloader.scss';
 
 export const Preloader = () => (
   <div className="preloader">
-    <img className="spinner" src={Spinner} draggable={false} />
+    <img className="spinner" src={Spinner} alt="spinner" draggable={false} />
   </div>
 );
