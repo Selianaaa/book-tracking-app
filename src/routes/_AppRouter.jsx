@@ -19,14 +19,19 @@ export class AppRouter extends React.Component {
                 <HomePage
                   {...routerProps}
                   books={this.props.books}
-                  setBooks={this.props.setBooks}
+                  updateShelf={this.props.updateShelf}
+                  showPreloader={this.props.showPreloader}
                 />
               )}
             />
             <Route
               path="/search"
               render={(routerProps) => (
-                <SearchPage {...routerProps} setBooks={this.props.setBooks} />
+                <SearchPage
+                  {...routerProps}
+                  myBooks={this.props.books}
+                  updateShelf={this.props.updateShelf}
+                />
               )}
             />
           </Switch>
@@ -35,24 +40,3 @@ export class AppRouter extends React.Component {
     );
   }
 }
-// export default AppRouter;
-// export const AppRouter = (books, setBooks) => {
-//   console.log(books);
-//   return (
-//     <Router>
-//       <Suspense fallback={<Preloader />}>
-//         <Switch>
-//           <Route
-//             exact
-//             path="/"
-//             render={(props) => (
-//               <HomePage {...props} books={books} setBooks={setBooks} />
-//             )}
-//           />
-//           <Route path="/search" component={SearchPage} />
-//           {/* <Route path="*" component={NotFound} /> */}
-//         </Switch>
-//       </Suspense>
-//     </Router>
-//   );
-// };

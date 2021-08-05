@@ -4,6 +4,7 @@
 .bookshelf_wrapper {
   position: relative;
   padding: 0 10px 20px;
+  width: 100%;
 }
 
 .bookshelf_title {
@@ -20,9 +21,4 @@
   @include baseRow;
   align-items: stretch;
   flex-wrap: wrap;
-}
-
-.bookshelf_book {
-  padding: 10px 15px;
-  text-align: left;
 }

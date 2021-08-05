@@ -14,9 +14,12 @@ export class Shelf extends React.Component {
 
         <div className="bookshelf_books">
           {this.props.books.map((book) => (
-            <div key={book.title} className="bookshelf_book">
-              <BookCard book={book} currentShelf={this.props.shelf.value} />
-            </div>
+            <BookCard
+              key={book.id}
+              book={book}
+              currentShelf={this.props.shelf.value}
+              updateShelf={this.props.updateShelf}
+            />
           ))}
         </div>
       </div>

@@ -9,9 +9,11 @@ class BooksApp extends React.Component {
     showPreloader: false,
   };
 
-  getMyBooks = () => {
-    BooksAPI.getAll().then((response) => {
-      console.log('getMyBooks: ', response);
+  getMyBooks = (preload) => {
+    if (preload) this.setState({ showPreloader: true });
+
+    BooksAPI.getMyBooks().then((response) => {
+      if (preload) this.setState({ showPreloader: false });
       this.setState({ books: response });
     });
   };
@@ -23,13 +25,23 @@ class BooksApp extends React.Component {
   };
 
   componentDidMount() {
-    this.getMyBooks();
+    this.getMyBooks(true);
   }
+
+  updateShelf = (book, shelf) => {
+    BooksAPI.updateMyBooks(book, shelf).then(() => {
+      this.getMyBooks(false);
+    });
+  };
 
   render() {
     return (
       <div className="app">
-        <AppRouter books={this.state.books} setBooks={this.state.setBooks} />
+        <AppRouter
+          books={this.state.books}
+          updateShelf={this.updateShelf}
+          showPreloader={this.state.showPreloader}
+        />
       </div>
     );
   }

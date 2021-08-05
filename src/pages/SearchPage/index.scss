@@ -1,46 +1,56 @@
-/* search page */
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-.search_bar {
-  position: fixed;
+.page {
+  position: relative;
   width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 5;
-  display: flex;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 0 6px rgba(0, 0, 0, 0.23);
+  height: 100%;
 }
 
-.search-books-input-wrapper {
-  flex: 1;
-  background: #e9e;
-}
+// .search_bar {
+//   position: fixed;
+//   height: 50px;
+//   width: 100%;
+//   top: 0;
+//   left: 0;
+//   z-index: 5;
+//   display: flex;
+//   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 0 6px rgba(0, 0, 0, 0.23);
+// }
 
-.search_bar input {
-  width: 100%;
-  padding: 15px 10px;
-  font-size: 1.25em;
-  border: none;
-  outline: none;
-}
+// .search_input {
+//   position: relative;
+//   height: 100%;
+//   flex: 1;
+//   background: #e9e;
+// }
 
-.close-search {
-  // display: block;
-  width: 50px;
-  height: 53px;
-  background-image: url('../../assets/icons/arrow-back.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 28px;
-  font-size: 0;
-}
+// .search_bar input {
+//   position: relative;
+//   height: 100%;
+//   width: 100%;
+//   padding: 15px 10px;
+//   font-size: 1.25em;
+//   border: none;
+//   outline: none;
+// }
 
-button:active {
-  border: red;
-  outline: none;
-}
+// .close_search {
+//   position: relative;
+//   width: 50px;
+//   height: 100%;
+//   background-image: url('../../assets/icons/arrow-back.svg');
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: 28px;
+//   font-size: 0;
+//   border-right: 1px solid gray;
+// }
 
-.search-books-results {
-  padding: 80px 10px 20px;
+.search_results {
+  position: relative;
+  padding: 100px 10px 20px;
+  min-height: 100vh;
+  @include baseColumn;
+  justify-content: center;
 }

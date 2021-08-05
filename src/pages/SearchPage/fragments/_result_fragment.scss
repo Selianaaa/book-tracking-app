@@ -1,0 +1,14 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.empty_result {
+  @include baseText(25px, 600);
+  color: primaryColor('dark');
+}
+
+.books {
+  position: relative;
+  @include baseRow;
+  align-items: stretch;
+  flex-wrap: wrap;
+}

@@ -4,6 +4,8 @@
 .book {
   position: relative;
   width: 140px;
+  margin: 10px 15px;
+  text-align: left;
 }
 
 .top {
@@ -16,7 +18,6 @@
 
 .cover {
   box-shadow: shadow(3);
-  // background: white;
 }
 
 .shelf_changer {
@@ -57,4 +58,5 @@
 .book_authors {
   margin-top: 3px;
   opacity: 0.5;
+  @include baseColumn(flex-start);
 }
