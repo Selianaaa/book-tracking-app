@@ -14,7 +14,7 @@ export class BookCard extends React.Component {
             style={{
               width: 128,
               height: 193,
-              backgroundImage: `url(${this.props.book.image})`,
+              backgroundImage: `url(${this.props.book.imageLinks.thumbnail})`,
             }}
           ></div>
           <div className="shelf_changer">

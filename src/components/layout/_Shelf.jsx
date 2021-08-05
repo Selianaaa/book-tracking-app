@@ -7,16 +7,17 @@ import './_shelf.scss';
 export class Shelf extends React.Component {
   render() {
     return (
-      <div className="bookshelf">
-        <h2 className="bookshelf-title">{this.props.shelf.title}</h2>
-        <div className="bookshelf-books">
-          <ol className="books-grid">
-            {this.props.books.map((book) => (
-              <li key={book.title}>
-                <BookCard book={book} currentShelf={this.props.shelf.value} />
-              </li>
-            ))}
-          </ol>
+      <div className="bookshelf_wrapper">
+        {this.props.showTitle && (
+          <h2 className="bookshelf_title">{this.props.shelf.title}</h2>
+        )}
+
+        <div className="bookshelf_books">
+          {this.props.books.map((book) => (
+            <div key={book.title} className="bookshelf_book">
+              <BookCard book={book} currentShelf={this.props.shelf.value} />
+            </div>
+          ))}
         </div>
       </div>
     );
@@ -25,5 +26,6 @@ export class Shelf extends React.Component {
 
 Shelf.propTypes = {
   shelf: PropTypes.object.isRequired,
+  showTitle: PropTypes.bool,
   books: PropTypes.array.isRequired,
 };

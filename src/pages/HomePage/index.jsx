@@ -61,14 +61,24 @@ class HomePage extends React.Component {
   };
 
   render() {
+    console.log('HomePage books', this.props.books);
     return (
-      <div className="app">
+      <div className="page">
         <Header />
 
         <div className="content">
-          <Shelf shelf={shelfs[0]} books={currentlyReadingBooks} />
-          <Shelf shelf={shelfs[1]} books={wantToRead} />
-          <Shelf shelf={shelfs[2]} books={read} />
+          {shelfs
+            .filter((shelf) => shelf.value !== 'none')
+            .map((shelf) => (
+              <Shelf
+                key={shelf.value}
+                showTitle
+                shelf={shelf}
+                books={this.props.books.filter(
+                  (book) => book.shelf === shelf.value
+                )}
+              />
+            ))}
         </div>
 
         <SearchButton />

@@ -1,7 +1,8 @@
 /* search page */
 @import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
-.search-books-bar {
+.search_bar {
   position: fixed;
   width: 100%;
   top: 0;
@@ -16,7 +17,7 @@
   background: #e9e;
 }
 
-.search-books-bar input {
+.search_bar input {
   width: 100%;
   padding: 15px 10px;
   font-size: 1.25em;
