@@ -8,6 +8,8 @@ const SearchPage = React.lazy(() => import('../pages/SearchPage'));
 
 export class AppRouter extends React.Component {
   render() {
+    const { showPreloader, books, updateShelf } = this.props;
+
     return (
       <Router>
         <Suspense fallback={<Preloader />}>
@@ -18,9 +20,9 @@ export class AppRouter extends React.Component {
               render={(routerProps) => (
                 <HomePage
                   {...routerProps}
-                  books={this.props.books}
-                  updateShelf={this.props.updateShelf}
-                  showPreloader={this.props.showPreloader}
+                  books={books}
+                  updateShelf={updateShelf}
+                  showPreloader={showPreloader}
                 />
               )}
             />
@@ -29,8 +31,8 @@ export class AppRouter extends React.Component {
               render={(routerProps) => (
                 <SearchPage
                   {...routerProps}
-                  myBooks={this.props.books}
-                  updateShelf={this.props.updateShelf}
+                  myBooks={books}
+                  updateShelf={updateShelf}
                 />
               )}
             />

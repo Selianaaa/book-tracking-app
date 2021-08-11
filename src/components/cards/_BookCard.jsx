@@ -9,8 +9,9 @@ const noCoverImage =
 
 export class BookCard extends React.Component {
   render() {
-    const bookHasCover =
-      this.props.book.imageLinks && this.props.book.imageLinks.thumbnail;
+    const { book, currentShelf, updateShelf } = this.props;
+
+    const bookHasCover = book.imageLinks && book.imageLinks.thumbnail;
 
     return (
       <div className="book">
@@ -21,18 +22,14 @@ export class BookCard extends React.Component {
               width: 128,
               height: 193,
               backgroundImage: `url(${
-                bookHasCover
-                  ? this.props.book.imageLinks.thumbnail
-                  : noCoverImage
+                bookHasCover ? book.imageLinks.thumbnail : noCoverImage
               })`,
             }}
           ></div>
           <div className="shelf_changer">
             <select
-              value={this.props.currentShelf}
-              onChange={(e) =>
-                this.props.updateShelf(this.props.book, e.target.value)
-              }
+              value={currentShelf}
+              onChange={(e) => updateShelf(book, e.target.value)}
             >
               <option value="move" disabled>
                 Move to...
@@ -46,10 +43,10 @@ export class BookCard extends React.Component {
             </select>
           </div>
         </div>
-        <div className="book_title">{this.props.book.title}</div>
-        {this.props.book.authors && (
+        <div className="book_title">{book.title}</div>
+        {book.authors && (
           <div className="book_authors">
-            {this.props.book.authors.map((author, index) => (
+            {book.authors.map((author, index) => (
               <span key={index}>{author}</span>
             ))}
           </div>

@@ -6,19 +6,19 @@ import './_shelf.scss';
 
 export class Shelf extends React.Component {
   render() {
+    const { showTitle, shelf, books, updateShelf } = this.props;
+
     return (
       <div className="bookshelf_wrapper">
-        {this.props.showTitle && (
-          <h2 className="bookshelf_title">{this.props.shelf.title}</h2>
-        )}
+        {showTitle && <h2 className="bookshelf_title">{shelf.title}</h2>}
 
         <div className="bookshelf_books">
-          {this.props.books.map((book) => (
+          {books.map((book) => (
             <BookCard
               key={book.id}
               book={book}
-              currentShelf={this.props.shelf.value}
-              updateShelf={this.props.updateShelf}
+              currentShelf={shelf.value}
+              updateShelf={updateShelf}
             />
           ))}
         </div>

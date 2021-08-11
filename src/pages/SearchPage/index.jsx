@@ -49,6 +49,8 @@ class SearchPage extends React.Component {
   };
 
   render() {
+    const { myBooks, updateShelf } = this.props;
+
     return (
       <div className="page">
         <SearchFragment
@@ -58,10 +60,10 @@ class SearchPage extends React.Component {
 
         <div className="search_results">
           <ResultFragment
-            myBooks={this.props.myBooks}
+            myBooks={myBooks}
             result={this.state.result}
             showPreloader={this.state.showPreloader}
-            updateShelf={this.props.updateShelf}
+            updateShelf={updateShelf}
           />
         </div>
       </div>

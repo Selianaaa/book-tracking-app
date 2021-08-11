@@ -7,12 +7,14 @@ import './index.scss';
 
 class HomePage extends React.Component {
   render() {
+    const { showPreloader, books, updateShelf } = this.props;
+
     return (
       <div className="page">
         <HeaderFragment />
 
         <div className="content">
-          {this.props.showPreloader ? (
+          {showPreloader ? (
             <div className="home_preloader">
               <Preloader />
             </div>
@@ -25,10 +27,8 @@ class HomePage extends React.Component {
                     key={shelf.value}
                     showTitle
                     shelf={shelf}
-                    books={this.props.books.filter(
-                      (book) => book.shelf === shelf.value
-                    )}
-                    updateShelf={this.props.updateShelf}
+                    books={books.filter((book) => book.shelf === shelf.value)}
+                    updateShelf={updateShelf}
                   />
                 ))}
             </Fragment>
