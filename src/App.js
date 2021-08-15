@@ -35,12 +35,14 @@ class BooksApp extends React.Component {
   };
 
   render() {
+    const { books, showPreloader } = this.state;
+
     return (
       <div className="app">
         <AppRouter
-          books={this.state.books}
+          books={books}
           updateShelf={this.updateShelf}
-          showPreloader={this.state.showPreloader}
+          showPreloader={showPreloader}
         />
       </div>
     );

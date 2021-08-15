@@ -49,20 +49,21 @@ class SearchPage extends React.Component {
   };
 
   render() {
+    const { result, searchValue, showPreloader } = this.state;
     const { myBooks, updateShelf } = this.props;
 
     return (
       <div className="page">
         <SearchFragment
-          searchValue={this.state.searchValue}
+          searchValue={searchValue}
           debounceSearch={this.debounceSearch}
         />
 
         <div className="search_results">
           <ResultFragment
             myBooks={myBooks}
-            result={this.state.result}
-            showPreloader={this.state.showPreloader}
+            result={result}
+            showPreloader={showPreloader}
             updateShelf={updateShelf}
           />
         </div>
